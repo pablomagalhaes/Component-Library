@@ -1,10 +1,9 @@
 {
-    "name": "n-c-component-library",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/joeythelantern/Component-Library.git"
+    "name": "@pablomagalhaes/Component-Library",
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/pablomagalhaes"
     },
-    "version": "0.0.2",
+    "version": "0.0.1",
     "description": "A component library for getting people started with easy to re-use components for everyday projects.",
     "main": "dist/cjs/index.js",
     "module": "dist/esm/index.js",
@@ -16,7 +15,7 @@
         "build:esm": "tsc",
         "build:cjs": "tsc --module CommonJS --outDir dist/cjs"
     },
-    "author": "The Nerdy Canuck",
+    "author": "Thiago Magalhães",
     "license": "MIT",
     "devDependencies": {
         "@types/node": "^17.0.21",
