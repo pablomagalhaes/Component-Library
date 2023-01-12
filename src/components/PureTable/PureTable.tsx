@@ -1,100 +1,98 @@
-import React, {useState} from "react";
+import React, { useState } from 'react';
 
-import NewTable from "./NewTable";
+import NewTable from './NewTable';
 import { Styles } from './styles';
 
 export interface PureTableProps {
     Data?: Array<string>;
     HeaderWell?: Array<string>;
     HeadersLogs?: Array<string>;
-  }
+}
 
 const PureTable = (props: PureTableProps) => {
-
     let arr = props.Data;
     let nestedWell = props.HeaderWell;
     console.log('nestedWell', nestedWell);
     let Header = props.HeadersLogs;
-    console.log('Header',Header)
+    console.log('Header', Header);
     let cols = [];
     let rows = [];
-  
-    
+
     let columnsZero: {}[] = [];
 
     cols.push({
-      // @ts-ignore
-      Header:  nestedWell[0].label,
-      columns: []
-    })
-  
+        // @ts-ignore
+        Header: nestedWell[0].label,
+        columns: []
+    });
+
     // console.log('cols before', cols);
 
     // @ts-ignore
-    Header.forEach(function(item) {
-      let currentCol = {};
-       // @ts-ignore
-      currentCol['Header'] = item;
-      // @ts-ignore
-      currentCol['accessor'] = item;
-      if(item === 'MD'){
+    Header.forEach(function (item) {
+        let currentCol = {};
         // @ts-ignore
-        currentCol['className'] = 'red';
-      }
-      columnsZero.push(currentCol);
+        currentCol['Header'] = item;
+        // @ts-ignore
+        currentCol['accessor'] = item;
+        if (item === 'MD') {
+            // @ts-ignore
+            currentCol['className'] = 'red';
+        }
+        columnsZero.push(currentCol);
     });
-  
-     // @ts-ignore
-     cols[0]['columns'] = columnsZero;
-     console.log('cols', cols);
-     
-    // @ts-ignore 
+
+    // @ts-ignore
+    cols[0]['columns'] = columnsZero;
+    console.log('cols', cols);
+
+    // @ts-ignore
     for (let i = 0; i < arr.length; i++) {
         let row = i;
         let currentRow2 = {};
         cols.map((d, index) => {
-          d.columns.map((c, index) => {
-            // @ts-ignore
-            let valores = Number(arr[row][index]);
-            // @ts-ignore
-            // currentRow2[`${c.accessor}`] = valores;
-          })
-        })
+            d.columns.map((c, index) => {
+                // @ts-ignore
+                let valores = Number(arr[row][index]);
+                // @ts-ignore
+                // currentRow2[`${c.accessor}`] = valores;
+            });
+        });
         rows.push(currentRow2);
-        }
+    }
 
-    const [data, setData] = useState(rows)
-    const [originalData] = useState(data)
+    const [data, setData] = useState(rows);
+    const [originalData] = useState(data);
 
-      // We need to keep the table from resetting the pageIndex when we
-  // Update data. So we can keep track of that flag with a ref.
+    // We need to keep the table from resetting the pageIndex when we
+    // Update data. So we can keep track of that flag with a ref.
 
-  // When our cell renderer calls updateMyData, we'll use
-  // the rowIndex, columnId and new value to update the
-  // original data
-  const updateMyData = (rowIndex: number, columnId: any, value: any) => {
-    // We also turn on the flag to not reset the page
-    setData(old =>
-      old.map((row, index) => {
-        if (index === rowIndex) {
-          return {
-            ...old[rowIndex],
-            [columnId]: value,
-          }
-        }
-        return row
-      })
-    )
-  }
-
-    // Undo Table
-    function undoData(){
-        console.log("undo");
-        // props.handleCurves();
+    // When our cell renderer calls updateMyData, we'll use
+    // the rowIndex, columnId and new value to update the
+    // original data
+    const updateMyData = (rowIndex: number, columnId: any, value: any) => {
+        // We also turn on the flag to not reset the page
+        setData((old) =>
+            old.map((row, index) => {
+                if (index === rowIndex) {
+                    return {
+                        ...old[rowIndex],
+                        [columnId]: value
+                    };
+                }
+                return row;
+            })
+        );
     };
 
+    // Undo Table
+    function undoData() {
+        console.log('undo');
+        // props.handleCurves();
+    }
+
     // Save Table
-    function saveChanges(){
+    function saveChanges() {
         // console.log("saveChanges nestedHeaders", this.props.nestedHeaders);
 
         // let nested = this.props.nestedHeaders;
@@ -135,7 +133,7 @@ const PureTable = (props: PureTableProps) => {
         //   }
         // }
 
-        console.log("data antes de salvar", payload);
+        console.log('data antes de salvar', payload);
 
         // let data = { data: payload };
         // saveEditionData(data)
@@ -171,27 +169,26 @@ const PureTable = (props: PureTableProps) => {
         //       300
         //     );
         //   });
-    };
+    }
 
     const resetData = () => setData(originalData);
 
-
     return (
         <>
-           <Styles>
-               <NewTable
-                 columns={cols}
-                 data={data}
-                //  updateMyData={updateMyData}
-                 resetData={resetData}
-                 exportExcel
-                 fileName="table"
-                 undoData={undoData}
-                 saveChanges={saveChanges}
-               />
-           </Styles>
+            <Styles>
+                <NewTable
+                    columns={cols}
+                    data={data}
+                    //  updateMyData={updateMyData}
+                    resetData={resetData}
+                    exportExcel
+                    fileName="table"
+                    undoData={undoData}
+                    saveChanges={saveChanges}
+                />
+            </Styles>
         </>
-       );
-  };
-  
-  export default PureTable;
+    );
+};
+
+export default PureTable;
