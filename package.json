@@ -1,9 +1,9 @@
 {
-    "name": "@pablomagalhaes/Component-Library",
+    "name": "@pablomagalhaes/component-library",
     "publishConfig": {
         "registry": "https://npm.pkg.github.com/pablomagalhaes"
     },
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "A component library for getting people started with easy to re-use components for everyday projects.",
     "main": "dist/cjs/index.js",
     "module": "dist/esm/index.js",
