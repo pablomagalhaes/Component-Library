@@ -1,1 +1,1 @@
-export { default } from './PureTable';
+export { PureTable } from './PureTable';

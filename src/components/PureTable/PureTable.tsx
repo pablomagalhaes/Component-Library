@@ -9,7 +9,7 @@ export interface PureTableProps {
     HeadersLogs?: Array<string>;
 }
 
-const PureTable = (props: PureTableProps) => {
+export const PureTable = (props: PureTableProps) => {
     let arr = props.Data;
     let nestedWell = props.HeaderWell;
     console.log('nestedWell', nestedWell);
@@ -190,5 +190,3 @@ const PureTable = (props: PureTableProps) => {
         </>
     );
 };
-
-export default PureTable;
