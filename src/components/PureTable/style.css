@@ -1,0 +1,324 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    font-family: 'Lato', Arial;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+.react_table--wrapper {
+    margin-top: 30px;
+    overflow: hidden;
+}
+.react_table--wrapper table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    background-color: #fff;
+}
+.react_table--wrapper thead {
+    background-color: #f7f7f7;
+    will-change: transform;
+    position: relative;
+}
+.react_table--wrapper thead tr:last-child {
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.15);
+}
+.react_table--wrapper thead.fixed_thead {
+    top: 0;
+    position: fixed;
+    z-index: 10;
+}
+.react_table--wrapper thead.fixed_thead + tbody:before,
+.react_table--wrapper thead.fixed_thead + tbody:after {
+    content: '';
+    display: block;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 16px;
+    height: 73px;
+}
+@media screen and (max-width: 1000px) {
+    .react_table--wrapper thead.fixed_thead + tbody:before,
+    .react_table--wrapper thead.fixed_thead + tbody:after {
+        display: none;
+    }
+}
+.react_table--wrapper thead.fixed_thead + tbody:after {
+    right: 0;
+    left: auto;
+}
+.react_table--wrapper tbody tr:hover {
+    background-color: #f1f1f1;
+}
+.react_table--wrapper tr {
+    outline: 0;
+    vertical-align: middle;
+}
+.react_table--wrapper th {
+    position: relative;
+    font-weight: 700;
+    text-align: center;
+    white-space: nowrap;
+    color: #4b4b4b;
+    vertical-align: top;
+    will-change: transform;
+    width: 100px;
+    border: 1px solid #ccc;
+    background-color: #f0f0f0;
+    padding: 10px 10px;
+}
+.react_table--wrapper th > div:first-child {
+    line-height: 26px;
+}
+.react_table--wrapper td {
+    vertical-align: middle;
+    color: #4b4b4b;
+    border: 1px solid #353535;
+    background-color: #fff;
+}
+.react_table--wrapper td > div:first-child {
+    min-width: 0;
+    text-align: center;
+    word-break: normal;
+    display: inline-table;
+}
+.react_table--wrapper td input {
+    font-size: 1rem;
+    padding: 0.5rem;
+    margin: 0;
+    border: 0;
+    width: 100%;
+    height: 100%;
+}
+.pagination {
+    padding: 16px 32px;
+    background-color: #f7f7f7;
+    text-align: center;
+}
+.svg-icon {
+    display: inline-block;
+    fill: #a29060;
+}
+.svg-icon--disabled {
+    cursor: default;
+    fill: #a7a9ac !important;
+}
+.svg-icon--disabled:hover {
+    cursor: default;
+    opacity: 1;
+}
+.svg-icon-info {
+    fill: #a7a9ac;
+}
+.svg-icon.rotate-mirror {
+    transform: scaleX(-1) rotate(-90deg);
+}
+.custom-scroll {
+    display: none;
+    position: absolute;
+    height: 26px;
+    left: 0;
+    right: 0;
+    bottom: 28px;
+    padding: 9px 12px;
+    z-index: 1;
+    cursor: pointer;
+    background-color: #f7f7f7;
+}
+.custom-scroll--active {
+    position: relative;
+    overflow: hidden !important;
+    padding-bottom: 32px;
+}
+.custom-scroll--active .custom-scroll {
+    display: block;
+}
+.custom-scroll--content {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    overflow-x: scroll;
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
+}
+.custom-scroll--content::-webkit-scrollbar {
+    width: 0 !important;
+}
+.custom-scroll-line {
+    background: #9fa1a4;
+    position: relative;
+    width: 80%;
+    height: 8px;
+    left: 0;
+    border-radius: 3px;
+    transition: 0.1s width ease-out;
+    min-width: 40px;
+}
+.custom-scroll-line-container {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.custom-scroll-line-container:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: #f7f7f7;
+    border-radius: 3px;
+}
+.custom-scroll--fixed .custom-scroll {
+    position: fixed;
+    padding: 8px 24px;
+    background: #f7f7f7;
+    transition: 0.1s left ease-out;
+    bottom: 0px;
+}
+.custom-scroll--fixed .custom-scroll-line-container:before {
+    background: #fff;
+}
+.td {
+    vertical-align: middle;
+    color: #4b4b4b;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+.td > div:first-child {
+    min-width: 0;
+    text-align: center;
+    word-break: normal;
+    display: inline-table;
+}
+.td input {
+    font-size: 1rem;
+    padding: 0.5rem;
+    margin: 0;
+    border: 0;
+    width: 100%;
+    height: 100%;
+}
+.frozen {
+    background: #f5f5f5;
+}
+.contextMenu {
+    position: fixed;
+    background: white;
+    box-shadow: 0px 2px 10px #999;
+}
+.contextMenu--option {
+    padding: 6px 50px 5px 10px;
+    min-width: 160px;
+    cursor: default;
+    font-size: 12px;
+}
+.contextMenu--option:hover {
+    background: linear-gradient(to top, #555, #333);
+    color: white;
+}
+.contextMenu--option:active {
+    color: #e9e9e9;
+    background: linear-gradient(to top, #555, #444);
+}
+.contextMenu--option__disabled {
+    color: #999;
+    pointer-events: none;
+}
+.contextMenu--separator {
+    width: 100%;
+    height: 1px;
+    background: #ccc;
+    margin: 0 0 0 0;
+}
+.menu {
+    font-size: 14px;
+    background-color: #fff;
+    border-radius: 2px;
+    padding: 5px 0 5px 0;
+    width: 150px;
+    height: auto;
+    margin: 0;
+    position: absolute;
+    list-style: none;
+    box-shadow: 0 0 20px 0 #ccc;
+}
+.menu__item {
+    padding: 0.5em 1em;
+    color: #000;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+.menu__item:hover {
+    background-color: #f2f2f2;
+    border-left: 4px solid #ccc;
+}
+.menu__icon {
+    margin-right: 8px;
+}
+.divider {
+    border-bottom: 1px solid #eee;
+    margin: 10px 0;
+}
+.context-sub-menu,
+.context-menu {
+    position: fixed;
+    background: #fff;
+    z-index: 9999999;
+    width: 120px;
+    margin: 0;
+    padding: 5px 0;
+    border-radius: 2px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+    font-size: 12px;
+}
+.context-menu .context-menu-item {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    padding: 6px 10px;
+    cursor: pointer;
+    position: relative;
+    border-bottom: 1px solid #f2f2f2;
+}
+.context-menu .context-menu-item span {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.context-menu-item:last-of-type {
+    border-bottom: none;
+}
+.context-menu .context-menu-item:hover {
+    background: #f2f2f2;
+}
+.context-menu .context-sub-menu {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    display: none;
+    width: 100px;
+}
+.context-menu .context-menu-item:hover > .context-sub-menu {
+    display: block;
+}
+.context-menu.left .context-sub-menu {
+    left: 0;
+    transform: translateX(-100%);
+}
+.context-menu.top .context-sub-menu {
+    top: 100%;
+    transform: translateY(-100%);
+}
+.context-menu.left.top .context-sub-menu {
+    transform: translate(-100%, -100%);
+}

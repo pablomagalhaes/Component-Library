@@ -1,2 +1,2 @@
 export * from './Button';
-export * from './PureTable';
+export * from './PureTable/PureTable';

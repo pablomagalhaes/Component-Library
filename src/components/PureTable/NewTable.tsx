@@ -8,6 +8,8 @@ import { useTable, useAbsoluteLayout, useBlockLayout, TableInstance, TableOption
 import { FixedSizeList } from 'react-window';
 import scrollbarWidth from './scrollbarWidth';
 
+import './style.css';
+
 export interface NewTableProps {
     columns?: Array<Object>;
     data?: Array<Object>;
